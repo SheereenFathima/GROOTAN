@@ -1,0 +1,61 @@
+import java.io.BufferedReader;  
+import java.io.FileReader;  
+import java.io.IOException;
+import java.util.ArrayList;  
+public class Main  
+{  
+public static void main(String[] args)  
+{  
+String line = "";  
+String splitBy = ",";
+int count=0;
+
+
+ArrayList<ArrayList> table=new ArrayList<ArrayList>();
+
+try  
+{  
+
+BufferedReader br = new BufferedReader(new FileReader("E:\\grootan.csv"));
+while ((line = br.readLine()) != null)    
+{
+
+String[] array1 = line.split(splitBy);
+
+
+count=array1.length;
+break;
+
+}  
+
+for(int i=0;i<count;i++) {
+BufferedReader br1 = new BufferedReader(new FileReader("E:\\grootan.csv"));
+ArrayList bl=new ArrayList();
+
+while ((line = br1.readLine()) != null)    
+{
+
+String[] array = line.split(splitBy);
+bl.add(array[i]);}
+
+table.add(bl);
+
+
+}
+}  
+catch (IOException e)  
+{  
+e.printStackTrace();  
+}  
+
+
+for(int i=0;i<table.size();i++){
+    for(int j=0;j<table.get(i).size();j++)
+    {
+        System.out.println(table.get(i).get(j));
+    }
+    System.out.println();
+}
+}  
+}  
+
